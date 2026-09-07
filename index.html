@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vehicle Match — Get matched with a deal, not a dealership</title>
+<title>Vehicle Match: Get matched with a deal, not a dealership</title>
 <meta name="description" content="Tell us what you're shopping for and we'll match you with a broker who can get you a real buy or lease deal. No dealership runaround, no cost to you.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
@@ -452,7 +452,7 @@
 <section class="hero-grid">
   <div class="hero-content">
     <h1>Get matched with your next vehicle deal</h1>
-    <p class="lede">Tell us what you're shopping for. We'll connect you with a broker who works directly with lenders and dealers to get you a real buy or lease offer — without you setting foot on a lot.</p>
+    <p class="lede">Tell us what you're shopping for. We'll connect you with a broker who works directly with lenders and dealers to get you a real buy or lease offer, without you setting foot on a lot.</p>
     <a class="cta" href="#form">Start matching</a>
   </div>
 
@@ -487,13 +487,13 @@
           <input type="text" id="model" name="model" placeholder="e.g. RAV4, 3 Series" autocomplete="off">
         </div>
         <div class="tesla-note" id="teslaNote">
-          Heads up — we don't have a Tesla broker in our network right now. We'll still save your info in case that changes, but response times may be slower for this one.
+          Heads up: we don't have a Tesla broker in our network right now. We'll still save your info in case that changes, but response times may be slower for this one.
         </div>
       </div>
 
       <div class="step" data-step="2">
         <h2>Buy or lease?</h2>
-        <p class="sub">Pick whichever you're leaning toward — you can change your mind later.</p>
+        <p class="sub">Pick whichever you're leaning toward. You can change your mind later.</p>
         <div class="option-list" data-group="dealType">
           <label class="option"><input type="radio" name="dealType" value="Buy"><span>Buy</span></label>
           <label class="option"><input type="radio" name="dealType" value="Lease"><span>Lease</span></label>
@@ -523,7 +523,7 @@
 
       <div class="step" data-step="5">
         <h2>How would you describe your credit?</h2>
-        <p class="sub">Self-reported — this just helps match you to the right lender options.</p>
+        <p class="sub">Self-reported. This just helps match you to the right lender options.</p>
         <div class="option-list" data-group="credit">
           <label class="option"><input type="radio" name="credit" value="Excellent (720+)"><span>Excellent (720+)</span></label>
           <label class="option"><input type="radio" name="credit" value="Good (660–719)"><span>Good (660–719)</span></label>
@@ -533,7 +533,7 @@
       </div>
 
       <div class="step" data-step="6">
-        <h2>Last step — how do we reach you?</h2>
+        <h2>Last step: how do we reach you?</h2>
         <div class="field">
           <label class="field-label" for="name">Full name</label>
           <input type="text" id="name" name="name" autocomplete="name">
@@ -585,7 +585,7 @@
   </div>
   <div class="spec-item">
     <div class="label">Cost to you</div>
-    <div class="value">$0 — always</div>
+    <div class="value">$0, always</div>
   </div>
 </div>
 
@@ -597,7 +597,7 @@
   <div class="deals-scroll" id="dealsScroll"></div>
 </section>
 
-<footer class="site">VEHICLE MATCH — INTAKE V1</footer>
+<footer class="site">VEHICLE MATCH · INTAKE V1</footer>
 
 <script>
   const SUBMIT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwBYoAzNDonGkULvr2aZUHUsMTxwoQZMlH_F4wzlE24e0m4Rdx3UO3AcjgrJ93luuw/exec";
@@ -632,7 +632,7 @@
     const card = document.createElement('div');
     card.className = 'deal-card';
     card.innerHTML = `
-      <img src="${deal.image}" alt="${deal.make} ${deal.model} ${deal.trim} — ${deal.price}" loading="lazy">
+      <img src="${deal.image}" alt="${deal.make} ${deal.model} ${deal.trim} · ${deal.price}" loading="lazy">
       <div class="deal-meta">
         <div class="deal-make">${deal.make}</div>
         <div class="deal-model">${deal.model} · ${deal.price}</div>
