@@ -162,6 +162,92 @@
     display:flex;
     justify-content:center;
   }
+
+  .deals-section{
+    max-width:1040px;
+    margin:56px auto 0;
+    padding:0 20px;
+  }
+  .deals-header{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:16px;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+  .deals-header h2{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:20px;
+    margin:0;
+  }
+  .deals-header .deals-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--steel);
+  }
+  .deals-scroll{
+    display:flex;
+    gap:14px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding-bottom:14px;
+    margin:0 -20px;
+    padding-left:20px;
+    padding-right:20px;
+  }
+  .deals-scroll::-webkit-scrollbar{ height:6px; }
+  .deals-scroll::-webkit-scrollbar-thumb{ background:var(--line); border-radius:3px; }
+  .deal-card{
+    flex:0 0 208px;
+    scroll-snap-align:start;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:border-color .15s ease;
+  }
+  .deal-card:hover{ border-color:#B9B5AA; }
+  .deal-card img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-bottom:1px solid var(--line);
+  }
+  .deal-card .deal-meta{
+    padding:10px 12px 12px;
+  }
+  .deal-card .deal-make{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--steel);
+    margin-bottom:2px;
+  }
+  .deal-card .deal-model{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:14.5px;
+    margin-bottom:8px;
+  }
+  .deal-card .deal-cta{
+    display:block;
+    text-align:center;
+    background:var(--ink);
+    color:#fff;
+    font-family:'Inter', sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    padding:8px;
+    border-radius:3px;
+  }
+  .deal-card:hover .deal-cta{ background:#000; }
+  @media (max-width:600px){
+    .deal-card{ flex-basis:170px; }
+  }
   .card{
     width:100%;
     max-width:460px;
@@ -503,10 +589,64 @@
   </div>
 </div>
 
+<section class="deals-section">
+  <div class="deals-header">
+    <h2>This month's deals</h2>
+    <div class="deals-note">UPDATED MONTHLY BY OUR BROKER NETWORK</div>
+  </div>
+  <div class="deals-scroll" id="dealsScroll"></div>
+</section>
+
 <footer class="site">VEHICLE MATCH — INTAKE V1</footer>
 
 <script>
   const SUBMIT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwBYoAzNDonGkULvr2aZUHUsMTxwoQZMlH_F4wzlE24e0m4Rdx3UO3AcjgrJ93luuw/exec";
+
+  // ---- THIS MONTH'S DEALS ----
+  // Update this array each month: swap image files in /deals/ and edit the entries below.
+  // "image" paths are relative to the site root.
+  const DEALS = [
+    { make: "Nissan",   model: "Altima",   trim: "SV",              price: "$334/mo", image: "deals/nissan-altima.jpg" },
+    { make: "Nissan",   model: "Sentra",   trim: "SV",              price: "$353/mo", image: "deals/nissan-sentra.jpg" },
+    { make: "Nissan",   model: "Pathfinder", trim: "SV",            price: "$479/mo", image: "deals/nissan-pathfinder.jpg" },
+    { make: "Nissan",   model: "Rogue",    trim: "SV",              price: "$399/mo", image: "deals/nissan-rogue.jpg" },
+    { make: "Nissan",   model: "Murano",   trim: "SV",              price: "$474/mo", image: "deals/nissan-murano.jpg" },
+    { make: "Nissan",   model: "Kicks",    trim: "SR",              price: "$440/mo", image: "deals/nissan-kicks.jpg" },
+    { make: "Nissan",   model: "Frontier", trim: "PRO 4-X",         price: "$509/mo", image: "deals/nissan-frontier.jpg" },
+    { make: "Cadillac", model: "Lyriq",    trim: "Premium Luxury",  price: "$599/mo", image: "deals/cadillac-lyriq.jpg" },
+    { make: "Genesis",  model: "G70",      trim: "2.5",             price: "$565/mo", image: "deals/genesis-g70.jpg" },
+    { make: "Genesis",  model: "G70",      trim: "2.5 Conquest",    price: "$518/mo", image: "deals/genesis-g70-conquest.jpg" },
+    { make: "Mazda",    model: "CX-5",     trim: "2.5S",            price: "$444/mo", image: "deals/mazda-cx5.jpg" },
+    { make: "Mazda",    model: "Mazda3",   trim: "2.5S",            price: "$373/mo", image: "deals/mazda-3.jpg" },
+    { make: "Mazda",    model: "CX-90",    trim: "SE",              price: "$514/mo", image: "deals/mazda-cx90.jpg" },
+    { make: "Mazda",    model: "CX-50",    trim: "SE",              price: "$453/mo", image: "deals/mazda-cx50.jpg" },
+    { make: "Mazda",    model: "CX-30",    trim: "2.5S",            price: "$394/mo", image: "deals/mazda-cx30.jpg" },
+    { make: "Subaru",   model: "Forester", trim: "Sport Onyx",      price: "$536/mo", image: "deals/subaru-forester.jpg" },
+    { make: "Subaru",   model: "Crosstrek", trim: "Premium CVT",    price: "$393/mo", image: "deals/subaru-crosstrek.jpg" },
+    { make: "Subaru",   model: "Ascent",   trim: "Limited",         price: "$640/mo", image: "deals/subaru-ascent.jpg" },
+    { make: "Subaru",   model: "Outback",  trim: "Premium",         price: "$461/mo", image: "deals/subaru-outback.jpg" }
+  ];
+
+  const dealsScroll = document.getElementById('dealsScroll');
+  DEALS.forEach(deal => {
+    const card = document.createElement('div');
+    card.className = 'deal-card';
+    card.innerHTML = `
+      <img src="${deal.image}" alt="${deal.make} ${deal.model} ${deal.trim} — ${deal.price}" loading="lazy">
+      <div class="deal-meta">
+        <div class="deal-make">${deal.make}</div>
+        <div class="deal-model">${deal.model} · ${deal.price}</div>
+        <div class="deal-cta">Get this deal</div>
+      </div>
+    `;
+    card.addEventListener('click', () => {
+      form.make.value = deal.make;
+      form.model.value = deal.model;
+      document.getElementById('teslaNote').classList.remove('show');
+      document.getElementById('form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    dealsScroll.appendChild(card);
+  });
 
   const totalSteps = 6;
   let current = 1;
