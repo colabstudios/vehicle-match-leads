@@ -143,6 +143,41 @@
     .header-right{ gap:10px 16px; }
   }
 
+  .sourcing-strip{
+    max-width:1040px;
+    margin:36px auto 0;
+    padding:0 20px;
+    text-align:center;
+  }
+  .sourcing-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    color:var(--steel);
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    margin-bottom:12px;
+  }
+  .sourcing-brands{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px 22px;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:17px;
+    color:var(--ink);
+  }
+  .sourcing-brands span:not(:last-child)::after{
+    content:'·';
+    margin-left:22px;
+    color:var(--line);
+    font-weight:400;
+  }
+  @media (max-width:500px){
+    .sourcing-brands{ font-size:15px; gap:6px 14px; }
+    .sourcing-brands span:not(:last-child)::after{ margin-left:14px; }
+  }
+
   .form-section{ padding:0 16px 64px; display:flex; justify-content:center; }
   .card{
     width:100%;
@@ -365,6 +400,17 @@
   <div class="spec-item">
     <div class="label">Cost to your business</div>
     <div class="value">$0, always</div>
+  </div>
+</div>
+
+<div class="sourcing-strip">
+  <div class="sourcing-label">Currently sourcing across</div>
+  <div class="sourcing-brands">
+    <span>Nissan</span>
+    <span>Cadillac</span>
+    <span>Genesis</span>
+    <span>Mazda</span>
+    <span>Subaru</span>
   </div>
 </div>
 
