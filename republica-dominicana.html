@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vehicle Match República Dominicana: consigue tu próximo vehículo en La Vega</title>
+<meta name="description" content="Cuéntanos qué vehículo buscas y te conectamos directo con nuestro dealer en La Vega, República Dominicana. Sin costo para ti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B1C1E;
+    --steel:#5B6168;
+    --paper:#ECEAE4;
+    --panel:#FFFFFF;
+    --line:#DAD7CE;
+    --accent:#C9412D;
+    --accent-dark:#9E3220;
+    --success:#2F6B4F;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 28px 28px;
+    background-position: -1px -1px;
+    font-family:'Inter', system-ui, sans-serif;
+    color:var(--ink);
+  }
+
+  header.site{
+    max-width:920px;
+    margin:0 auto;
+    padding:24px 20px 0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .wordmark-lockup{ display:flex; align-items:center; gap:9px; }
+  .wordmark{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:16px;
+    letter-spacing:.02em;
+  }
+  .wordmark .sub{ color:var(--steel); font-weight:400; }
+  .header-right{ display:flex; align-items:center; gap:20px; flex-wrap:wrap; justify-content:flex-end; }
+  .alt-link{
+    font-family:'Inter', sans-serif;
+    font-size:13px;
+    font-weight:500;
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    padding-bottom:1px;
+  }
+  .alt-link:hover{ border-color:var(--ink); }
+  .header-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--steel);
+  }
+
+  .hero-grid{
+    max-width:1040px;
+    margin:0 auto;
+    padding:48px 20px 0;
+    display:grid;
+    grid-template-columns:1.15fr 1fr;
+    gap:44px;
+    align-items:start;
+  }
+  .hero-content h1{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:clamp(30px, 4.4vw, 46px);
+    line-height:1.14;
+    margin:0 0 18px;
+  }
+  .hero-content p.lede{
+    font-size:16.5px;
+    line-height:1.6;
+    color:var(--steel);
+    max-width:48ch;
+    margin:0 0 28px;
+  }
+  .hero-content .cta{
+    display:inline-block;
+    background:var(--ink);
+    color:#fff;
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:15px;
+    padding:13px 24px;
+    border-radius:3px;
+    text-decoration:none;
+    border:1px solid var(--ink);
+  }
+  .hero-content .cta:hover{ background:#000; }
+
+  .form-col{ position:sticky; top:24px; }
+
+  .spec-strip{
+    max-width:1040px;
+    margin:44px auto 0;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .spec-item{ padding:18px 20px; border-left:1px solid var(--line); }
+  .spec-item:first-child{ border-left:none; padding-left:0; }
+  .spec-item .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    color:var(--steel);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    margin-bottom:6px;
+  }
+  .spec-item .value{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:19px;
+    line-height:1.3;
+  }
+
+  @media (max-width:860px){
+    .hero-grid{ grid-template-columns:1fr; padding-top:36px; gap:32px; }
+    .form-col{ position:static; }
+  }
+  @media (max-width:600px){
+    header.site{ padding-top:18px; }
+    .spec-strip{ grid-template-columns:1fr; margin-top:32px; }
+    .spec-item{ border-left:none; border-top:1px solid var(--line); padding:16px 0; }
+    .spec-item:first-child{ border-top:none; }
+  }
+
+  .card{
+    width:100%;
+    max-width:460px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+    box-shadow:0 1px 0 var(--line);
+    overflow:hidden;
+  }
+  .card-top{ padding:20px 24px 16px; border-bottom:1px solid var(--line); }
+  .brand-row{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:14px; }
+  .brand{ font-family:'Oswald', sans-serif; font-weight:600; font-size:15px; letter-spacing:.02em; }
+  .odometer{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--steel);
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:2px 7px;
+  }
+  .gauge{ height:4px; background:var(--line); border-radius:2px; display:flex; gap:3px; }
+  .gauge i{ flex:1; background:var(--line); border-radius:2px; transition:background .25s ease; }
+  .gauge i.done{ background:var(--accent); }
+
+  .card-body{ padding:26px 24px 24px; min-height:260px; }
+  .step{ display:none; }
+  .step.active{ display:block; animation:rise .28s ease; }
+  @keyframes rise{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  .step h2{ font-family:'Oswald', sans-serif; font-weight:600; font-size:22px; line-height:1.25; margin:0 0 6px; }
+  .step p.sub{ margin:0 0 20px; color:var(--steel); font-size:14px; line-height:1.5; }
+
+  .field{ margin-bottom:16px; }
+  label.field-label{ display:block; font-size:13px; font-weight:500; color:var(--steel); margin-bottom:6px; }
+  input[type=text], input[type=email], input[type=tel]{
+    width:100%;
+    padding:11px 12px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    font-family:'Inter', sans-serif;
+    font-size:15px;
+    color:var(--ink);
+    background:var(--panel);
+  }
+  input:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent); }
+
+  .option-list{ display:flex; flex-direction:column; gap:8px; }
+  .option{
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:12px 14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+    font-size:14.5px;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .option:hover{ border-color:#B9B5AA; }
+  .option input{ accent-color:var(--accent); width:16px; height:16px; flex:none; }
+  .option.selected{ border-color:var(--accent); background:#FBF1EF; }
+
+  .consent{
+    display:flex; gap:10px; align-items:flex-start;
+    font-size:12.5px; color:var(--steel); line-height:1.5; margin-top:4px;
+  }
+  .consent input{ margin-top:3px; accent-color:var(--accent); flex:none; }
+
+  .nav-row{ display:flex; justify-content:space-between; align-items:center; margin-top:22px; }
+  button{
+    font-family:'Inter', sans-serif; font-size:14.5px; font-weight:600;
+    border-radius:3px; cursor:pointer; border:1px solid transparent;
+  }
+  .btn-next{ background:var(--ink); color:#fff; padding:11px 20px; }
+  .btn-next:hover{ background:#000; }
+  .btn-next:disabled{ background:#B9C1C5; cursor:not-allowed; }
+  .btn-back{ background:transparent; color:var(--steel); padding:11px 6px; }
+  .btn-back:hover{ color:var(--ink); }
+  .btn-back:disabled{ visibility:hidden; }
+
+  .done-panel{ text-align:center; padding:16px 4px 4px; }
+  .done-panel .mark{
+    width:44px; height:44px; border-radius:50%;
+    background:var(--success); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 16px; font-size:22px;
+  }
+  .done-panel h2{ margin-bottom:8px; }
+  .done-panel p{ color:var(--steel); font-size:14px; line-height:1.55; }
+
+  .error-text{ color:#9E3220; font-size:12.5px; margin-top:6px; display:none; }
+  .error-text.show{ display:block; }
+
+  footer.site{
+    max-width:920px; margin:0 auto; padding:0 20px 40px;
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--steel); text-align:center;
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wordmark-lockup">
+    <svg width="26" height="26" viewBox="0 0 40 40" fill="none">
+      <rect x="0.5" y="0.5" width="39" height="39" rx="4" stroke="#1B1C1E" stroke-width="1.5"/>
+      <path d="M8 30 L18 12 L20 16" stroke="#1B1C1E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M32 30 L22 12 L20 16" stroke="#1B1C1E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="20" cy="16" r="2.6" fill="#C9412D"/>
+    </svg>
+    <div class="wordmark">Vehicle Match <span class="sub">República Dominicana</span></div>
+  </div>
+  <div class="header-right">
+    <a class="alt-link" href="/">¿Buscas en EE.UU.?</a>
+    <div class="header-note">Sin costo para ti</div>
+  </div>
+</header>
+
+<section class="hero-grid">
+  <div class="hero-content">
+    <h1>Consigue tu próximo vehículo en La Vega</h1>
+    <p class="lede">Cuéntanos qué vehículo buscas y te conectamos directo con nuestro dealer en La Vega, República Dominicana. Sin compromiso, respuesta rápida.</p>
+    <a class="cta" href="#form">Empezar</a>
+  </div>
+
+  <div class="form-col" id="form">
+<div class="card">
+  <div class="card-top">
+    <div class="brand-row">
+      <div class="brand">Vehicle Match RD</div>
+      <div class="odometer" id="odo">PASO 01 / 04</div>
+    </div>
+    <div class="gauge" id="gauge"></div>
+  </div>
+
+  <div class="card-body">
+    <form id="rdForm">
+
+      <div class="step active" data-step="1">
+        <h2>¿Qué vehículo buscas?</h2>
+        <div class="field">
+          <label class="field-label" for="make">Marca</label>
+          <input type="text" id="make" name="make" placeholder="ej. Toyota, Hyundai, Kia" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="model">Modelo <span style="font-weight:400">(opcional)</span></label>
+          <input type="text" id="model" name="model" placeholder="ej. Corolla, Tucson" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="step" data-step="2">
+        <h2>¿Cómo prefieres pagar?</h2>
+        <div class="option-list" data-group="dealType">
+          <label class="option"><input type="radio" name="dealType" value="Contado"><span>Contado</span></label>
+          <label class="option"><input type="radio" name="dealType" value="Financiado"><span>Financiado</span></label>
+          <label class="option"><input type="radio" name="dealType" value="No estoy seguro"><span>No estoy seguro</span></label>
+        </div>
+      </div>
+
+      <div class="step" data-step="3">
+        <h2>Presupuesto y tiempo</h2>
+        <p class="sub">Un estimado está bien.</p>
+        <div class="field">
+          <label class="field-label" for="budget">Presupuesto aproximado (RD$)</label>
+          <input type="text" id="budget" name="budget" placeholder="ej. RD$800,000" autocomplete="off">
+        </div>
+        <div class="option-list" data-group="timeline">
+          <label class="option"><input type="radio" name="timeline" value="Inmediatamente"><span>Inmediatamente</span></label>
+          <label class="option"><input type="radio" name="timeline" value="1–3 meses"><span>1–3 meses</span></label>
+          <label class="option"><input type="radio" name="timeline" value="Solo viendo opciones"><span>Solo viendo opciones</span></label>
+        </div>
+      </div>
+
+      <div class="step" data-step="4">
+        <h2>Último paso: ¿cómo te contactamos?</h2>
+        <div class="field">
+          <label class="field-label" for="name">Nombre completo</label>
+          <input type="text" id="name" name="name" autocomplete="name">
+        </div>
+        <div class="field">
+          <label class="field-label" for="phone">Teléfono</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label class="field-label" for="zip">Ciudad / Provincia <span style="font-weight:400">(opcional)</span></label>
+          <input type="text" id="zip" name="zip" placeholder="ej. La Vega, Santiago" autocomplete="off">
+        </div>
+        <label class="consent">
+          <input type="checkbox" id="consent" name="consent">
+          <span>Acepto ser contactado por teléfono, mensaje de texto o WhatsApp sobre ofertas de vehículos.</span>
+        </label>
+        <div class="error-text" id="formError">Por favor completa tu nombre, teléfono y acepta los términos para continuar.</div>
+      </div>
+
+      <div class="step done-panel" data-step="5">
+        <div class="mark">&#10003;</div>
+        <h2>Solicitud recibida</h2>
+        <p>Te vamos a contactar pronto para ayudarte a conseguir tu vehículo.</p>
+      </div>
+
+    </form>
+
+    <div class="nav-row" id="navRow">
+      <button type="button" class="btn-back" id="backBtn">Atrás</button>
+      <button type="button" class="btn-next" id="nextBtn">Siguiente</button>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+
+<div class="spec-strip">
+  <div class="spec-item">
+    <div class="label">Tiempo de respuesta</div>
+    <div class="value">Menos de 24 horas</div>
+  </div>
+  <div class="spec-item">
+    <div class="label">Ubicación</div>
+    <div class="value">La Vega, RD</div>
+  </div>
+  <div class="spec-item">
+    <div class="label">Costo para ti</div>
+    <div class="value">RD$0, siempre</div>
+  </div>
+</div>
+
+<footer class="site">VEHICLE MATCH · REPÚBLICA DOMINICANA</footer>
+
+<script>
+  const SUBMIT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwBYoAzNDonGkULvr2aZUHUsMTxwoQZMlH_F4wzlE24e0m4Rdx3UO3AcjgrJ93luuw/exec";
+
+  const totalSteps = 4;
+  let current = 1;
+  const form = document.getElementById('rdForm');
+  const gauge = document.getElementById('gauge');
+  const odo = document.getElementById('odo');
+  const nextBtn = document.getElementById('nextBtn');
+  const backBtn = document.getElementById('backBtn');
+  const navRow = document.getElementById('navRow');
+  const formError = document.getElementById('formError');
+
+  for (let i = 0; i < totalSteps; i++) {
+    const seg = document.createElement('i');
+    gauge.appendChild(seg);
+  }
+
+  function renderGauge() {
+    [...gauge.children].forEach((seg, idx) => {
+      seg.classList.toggle('done', idx < current);
+    });
+    odo.textContent = `PASO ${String(current).padStart(2,'0')} / 0${totalSteps}`;
+  }
+
+  function showStep(n) {
+    document.querySelectorAll('.step').forEach(s => {
+      s.classList.toggle('active', Number(s.dataset.step) === n);
+    });
+    backBtn.disabled = n === 1;
+    nextBtn.textContent = n === totalSteps ? 'Enviar' : 'Siguiente';
+    if (n <= totalSteps) renderGauge();
+  }
+
+  form.addEventListener('change', (e) => {
+    if (e.target.type === 'radio') {
+      const group = e.target.closest('.option-list');
+      group.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+      e.target.closest('.option').classList.add('selected');
+    }
+  });
+
+  function currentStepValid() {
+    if (current === 4) {
+      const name = form.name.value.trim();
+      const phone = form.phone.value.trim();
+      const consent = form.consent.checked;
+      const ok = name && phone && consent;
+      formError.classList.toggle('show', !ok);
+      return ok;
+    }
+    return true;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    if (!currentStepValid()) return;
+    if (current < totalSteps) {
+      current++;
+      showStep(current);
+    } else {
+      submitForm();
+    }
+  });
+
+  backBtn.addEventListener('click', () => {
+    if (current > 1) {
+      current--;
+      showStep(current);
+    }
+  });
+
+  async function submitForm() {
+    nextBtn.disabled = true;
+    nextBtn.textContent = 'Enviando…';
+
+    const payload = {
+      name: form.name.value.trim(),
+      phone: form.phone.value.trim(),
+      zip: form.zip.value.trim(),
+      make: form.make.value.trim(),
+      model: form.model.value.trim(),
+      dealType: form.dealType.value || '',
+      budget: form.budget.value.trim(),
+      timeline: form.timeline.value || '',
+      consent: form.consent.checked,
+      excludeFromBrokerRouting: false,
+      excludeReason: '',
+      submittedAt: new Date().toISOString(),
+      source: document.referrer || 'direct',
+      segment: 'republica-dominicana'
+    };
+
+    try {
+      if (SUBMIT_WEBHOOK_URL && !SUBMIT_WEBHOOK_URL.startsWith('REPLACE_WITH')) {
+        await fetch(SUBMIT_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+      } else {
+        console.log('RD lead payload (no webhook configured yet):', payload);
+      }
+    } catch (err) {
+      console.error('Submission error', err);
+    }
+
+    current = 5;
+    document.querySelectorAll('.step').forEach(s => {
+      s.classList.toggle('active', Number(s.dataset.step) === 5);
+    });
+    navRow.style.display = 'none';
+  }
+
+  showStep(current);
+</script>
+
+</body>
+</html>
