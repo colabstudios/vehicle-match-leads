@@ -291,6 +291,14 @@
     font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--steel); text-align:center;
   }
 </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18449585886"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18449585886');
+  </script>
 </head>
 <body>
 
@@ -629,6 +637,14 @@
       }
     } catch (err) {
       console.error('Submission error', err);
+    }
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18449585886/zMcRCOX07PYcEN6tud1E',
+        'value': 1.0,
+        'currency': 'USD'
+      });
     }
 
     current = 5;
