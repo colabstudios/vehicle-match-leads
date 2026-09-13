@@ -74,6 +74,18 @@
     font-size:11px;
     color:var(--steel);
   }
+  .lang-toggle{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    font-weight:600;
+    color:var(--ink);
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:3px 9px;
+    cursor:pointer;
+  }
+  .lang-toggle:hover{ border-color:var(--ink); }
 
   .hero-grid{
     max-width:1040px;
@@ -465,16 +477,17 @@
     <div class="wordmark">Vehicle Match</div>
   </div>
   <div class="header-right">
-    <a class="fleet-link" href="/fleet.html">For fleets &amp; businesses</a>
-    <div class="header-note">No cost to you</div>
+    <a class="fleet-link" href="/fleet.html" data-i18n="fleetLink">For fleets &amp; businesses</a>
+    <button class="lang-toggle" id="langToggle" type="button">ES</button>
+    <div class="header-note" data-i18n="headerNote">No cost to you</div>
   </div>
 </header>
 
 <section class="hero-grid">
   <div class="hero-content">
-    <h1>Get matched with your next vehicle deal</h1>
-    <p class="lede">Tell us what you're shopping for. We'll connect you with a broker who works directly with lenders and dealers to get you a real buy or lease offer, without you setting foot on a lot.</p>
-    <a class="cta" href="#form">Start matching</a>
+    <h1 data-i18n="heroTitle">Get matched with your next vehicle deal</h1>
+    <p class="lede" data-i18n="heroLede">Tell us what you're shopping for. We'll connect you with a broker who works directly with lenders and dealers to get you a real buy or lease offer, without you setting foot on a lot.</p>
+    <a class="cta" href="#form" data-i18n="heroCta">Start matching</a>
   </div>
 
   <div class="form-col" id="form">
@@ -491,11 +504,11 @@
     <form id="leadForm">
 
       <div class="step active" data-step="1">
-        <h2>What are you shopping for?</h2>
-        <p class="sub">Tell us the make and, if you know it, the model.</p>
+        <h2 data-i18n="step1Title">What are you shopping for?</h2>
+        <p class="sub" data-i18n="step1Sub">Tell us the make and, if you know it, the model.</p>
         <div class="field">
-          <label class="field-label" for="make">Make</label>
-          <input type="text" id="make" name="make" list="makeList" placeholder="e.g. Toyota, BMW, Ford" autocomplete="off">
+          <label class="field-label" for="make" data-i18n="makeLabel">Make</label>
+          <input type="text" id="make" name="make" list="makeList" placeholder="e.g. Toyota, BMW, Ford" data-i18n-placeholder="makePlaceholder" autocomplete="off">
           <datalist id="makeList">
             <option value="Toyota"><option value="Honda"><option value="Ford"><option value="Chevrolet">
             <option value="BMW"><option value="Mercedes-Benz"><option value="Audi"><option value="Lexus">
@@ -504,92 +517,92 @@
           </datalist>
         </div>
         <div class="field">
-          <label class="field-label" for="model">Model <span style="font-weight:400">(optional)</span></label>
-          <input type="text" id="model" name="model" placeholder="e.g. RAV4, 3 Series" autocomplete="off">
+          <label class="field-label" for="model"><span data-i18n="modelLabel">Model</span> <span style="font-weight:400" data-i18n="modelOptional">(optional)</span></label>
+          <input type="text" id="model" name="model" placeholder="e.g. RAV4, 3 Series" data-i18n-placeholder="modelPlaceholder" autocomplete="off">
         </div>
         <div class="tesla-note" id="teslaNote">
-          We don't broker Teslas. But I'm a Tesla owner myself, so use my referral link below for a discount on your order.
+          <span data-i18n="teslaNoteText">We don't broker Teslas. But I'm a Tesla owner myself, so use my referral link below for a discount on your order.</span>
           <br>
-          <a class="tesla-cta" href="https://www.tesla.com/referral/angel631777" target="_blank" rel="noopener noreferrer">Use my Tesla referral link</a>
+          <a class="tesla-cta" href="https://www.tesla.com/referral/angel631777" target="_blank" rel="noopener noreferrer" data-i18n="teslaCta">Use my Tesla referral link</a>
         </div>
       </div>
 
       <div class="step" data-step="2">
-        <h2>Buy or lease?</h2>
-        <p class="sub">Pick whichever you're leaning toward. You can change your mind later.</p>
+        <h2 data-i18n="step2Title">Buy or lease?</h2>
+        <p class="sub" data-i18n="step2Sub">Pick whichever you're leaning toward. You can change your mind later.</p>
         <div class="option-list" data-group="dealType">
-          <label class="option"><input type="radio" name="dealType" value="Buy"><span>Buy</span></label>
-          <label class="option"><input type="radio" name="dealType" value="Lease"><span>Lease</span></label>
-          <label class="option"><input type="radio" name="dealType" value="Not sure yet"><span>Not sure yet</span></label>
+          <label class="option"><input type="radio" name="dealType" value="Buy"><span data-i18n="optBuy">Buy</span></label>
+          <label class="option"><input type="radio" name="dealType" value="Lease"><span data-i18n="optLease">Lease</span></label>
+          <label class="option"><input type="radio" name="dealType" value="Not sure yet"><span data-i18n="optNotSure">Not sure yet</span></label>
         </div>
       </div>
 
       <div class="step" data-step="3">
-        <h2>What's your target monthly payment?</h2>
-        <p class="sub">A rough range is fine.</p>
+        <h2 data-i18n="step3Title">What's your target monthly payment?</h2>
+        <p class="sub" data-i18n="step3Sub">A rough range is fine.</p>
         <div class="option-list" data-group="budget">
-          <label class="option"><input type="radio" name="budget" value="Under $300/mo"><span>Under $300/mo</span></label>
-          <label class="option"><input type="radio" name="budget" value="$300–$500/mo"><span>$300–$500/mo</span></label>
-          <label class="option"><input type="radio" name="budget" value="$500–$800/mo"><span>$500–$800/mo</span></label>
-          <label class="option"><input type="radio" name="budget" value="$800+/mo"><span>$800+/mo</span></label>
+          <label class="option"><input type="radio" name="budget" value="Under $300/mo"><span data-i18n="budget1">Under $300/mo</span></label>
+          <label class="option"><input type="radio" name="budget" value="$300–$500/mo"><span data-i18n="budget2">$300–$500/mo</span></label>
+          <label class="option"><input type="radio" name="budget" value="$500–$800/mo"><span data-i18n="budget3">$500–$800/mo</span></label>
+          <label class="option"><input type="radio" name="budget" value="$800+/mo"><span data-i18n="budget4">$800+/mo</span></label>
         </div>
       </div>
 
       <div class="step" data-step="4">
-        <h2>When do you want to be in the vehicle?</h2>
+        <h2 data-i18n="step4Title">When do you want to be in the vehicle?</h2>
         <div class="option-list" data-group="timeline">
-          <label class="option"><input type="radio" name="timeline" value="Immediately"><span>Immediately</span></label>
-          <label class="option"><input type="radio" name="timeline" value="1–3 months"><span>1–3 months</span></label>
-          <label class="option"><input type="radio" name="timeline" value="Just browsing"><span>Just browsing</span></label>
+          <label class="option"><input type="radio" name="timeline" value="Immediately"><span data-i18n="timeline1">Immediately</span></label>
+          <label class="option"><input type="radio" name="timeline" value="1–3 months"><span data-i18n="timeline2">1–3 months</span></label>
+          <label class="option"><input type="radio" name="timeline" value="Just browsing"><span data-i18n="timeline3">Just browsing</span></label>
         </div>
       </div>
 
       <div class="step" data-step="5">
-        <h2>How would you describe your credit?</h2>
-        <p class="sub">Self-reported. This just helps match you to the right lender options.</p>
+        <h2 data-i18n="step5Title">How would you describe your credit?</h2>
+        <p class="sub" data-i18n="step5Sub">Self-reported. This just helps match you to the right lender options.</p>
         <div class="option-list" data-group="credit">
-          <label class="option"><input type="radio" name="credit" value="Excellent (720+)"><span>Excellent (720+)</span></label>
-          <label class="option"><input type="radio" name="credit" value="Good (660–719)"><span>Good (660–719)</span></label>
-          <label class="option"><input type="radio" name="credit" value="Fair (600–659)"><span>Fair (600–659)</span></label>
-          <label class="option"><input type="radio" name="credit" value="Building / not sure"><span>Building / not sure</span></label>
+          <label class="option"><input type="radio" name="credit" value="Excellent (720+)"><span data-i18n="credit1">Excellent (720+)</span></label>
+          <label class="option"><input type="radio" name="credit" value="Good (660–719)"><span data-i18n="credit2">Good (660–719)</span></label>
+          <label class="option"><input type="radio" name="credit" value="Fair (600–659)"><span data-i18n="credit3">Fair (600–659)</span></label>
+          <label class="option"><input type="radio" name="credit" value="Building / not sure"><span data-i18n="credit4">Building / not sure</span></label>
         </div>
       </div>
 
       <div class="step" data-step="6">
-        <h2>Last step: how do we reach you?</h2>
+        <h2 data-i18n="step6Title">Last step: how do we reach you?</h2>
         <div class="field">
-          <label class="field-label" for="name">Full name</label>
+          <label class="field-label" for="name" data-i18n="nameLabel">Full name</label>
           <input type="text" id="name" name="name" autocomplete="name">
         </div>
         <div class="field">
-          <label class="field-label" for="phone">Phone</label>
+          <label class="field-label" for="phone" data-i18n="phoneLabel">Phone</label>
           <input type="tel" id="phone" name="phone" autocomplete="tel">
         </div>
         <div class="field">
-          <label class="field-label" for="email">Email</label>
+          <label class="field-label" for="email" data-i18n="emailLabel">Email</label>
           <input type="email" id="email" name="email" autocomplete="email">
         </div>
         <div class="field">
-          <label class="field-label" for="zip">ZIP code</label>
+          <label class="field-label" for="zip" data-i18n="zipLabel">ZIP code</label>
           <input type="text" id="zip" name="zip" autocomplete="postal-code" inputmode="numeric" maxlength="5">
         </div>
         <label class="consent">
           <input type="checkbox" id="consent" name="consent">
-          <span>I agree to be contacted by phone, text, or email about vehicle offers. Message/data rates may apply.</span>
+          <span data-i18n="consentText">I agree to be contacted by phone, text, or email about vehicle offers. Message/data rates may apply.</span>
         </label>
-        <div class="error-text" id="formError">Please fill in your name, phone, and consent to continue.</div>
+        <div class="error-text" id="formError" data-i18n="errorText">Please fill in your name, phone, and consent to continue.</div>
       </div>
 
       <div class="step done-panel" data-step="7">
         <div class="mark">&#10003;</div>
-        <h2>You're on the list</h2>
-        <p>We're matching you with the right partner now. Expect a call or text shortly.</p>
+        <h2 data-i18n="doneTitle">You're on the list</h2>
+        <p data-i18n="doneText">We're matching you with the right partner now. Expect a call or text shortly.</p>
       </div>
 
     </form>
 
     <div class="nav-row" id="navRow">
-      <button type="button" class="btn-back" id="backBtn">Back</button>
+      <button type="button" class="btn-back" id="backBtn" data-i18n="backBtn">Back</button>
       <button type="button" class="btn-next" id="nextBtn">Next</button>
     </div>
   </div>
@@ -599,23 +612,23 @@
 
 <div class="spec-strip">
   <div class="spec-item">
-    <div class="label">Time to match</div>
-    <div class="value">Under 24 hours</div>
+    <div class="label" data-i18n="specLabel1">Time to match</div>
+    <div class="value" data-i18n="specValue1">Under 24 hours</div>
   </div>
   <div class="spec-item">
-    <div class="label">Brands covered</div>
-    <div class="value">Every major brand, Tesla via referral</div>
+    <div class="label" data-i18n="specLabel2">Brands covered</div>
+    <div class="value" data-i18n="specValue2">Every major brand, Tesla via referral</div>
   </div>
   <div class="spec-item">
-    <div class="label">Cost to you</div>
-    <div class="value">$0, always</div>
+    <div class="label" data-i18n="specLabel3">Cost to you</div>
+    <div class="value" data-i18n="specValue3">$0, always</div>
   </div>
 </div>
 
 <section class="deals-section">
   <div class="deals-header">
-    <h2>This month's deals</h2>
-    <div class="deals-note">UPDATED MONTHLY BY OUR BROKER NETWORK</div>
+    <h2 data-i18n="dealsTitle">This month's deals</h2>
+    <div class="deals-note" data-i18n="dealsNote">UPDATED MONTHLY BY OUR BROKER NETWORK</div>
   </div>
   <div class="deals-scroll" id="dealsScroll"></div>
 </section>
@@ -624,6 +637,140 @@
 
 <script>
   const SUBMIT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwBYoAzNDonGkULvr2aZUHUsMTxwoQZMlH_F4wzlE24e0m4Rdx3UO3AcjgrJ93luuw/exec";
+
+  // ---- LANGUAGE / TRANSLATIONS ----
+  const translations = {
+    en: {
+      pageTitle: "Vehicle Match: Get matched with a deal, not a dealership",
+      fleetLink: "For fleets & businesses",
+      headerNote: "No cost to you",
+      heroTitle: "Get matched with your next vehicle deal",
+      heroLede: "Tell us what you're shopping for. We'll connect you with a broker who works directly with lenders and dealers to get you a real buy or lease offer, without you setting foot on a lot.",
+      heroCta: "Start matching",
+      specLabel1: "Time to match",
+      specValue1: "Under 24 hours",
+      specLabel2: "Brands covered",
+      specValue2: "Every major brand, Tesla via referral",
+      specLabel3: "Cost to you",
+      specValue3: "$0, always",
+      stepWord: "STEP",
+      step1Title: "What are you shopping for?",
+      step1Sub: "Tell us the make and, if you know it, the model.",
+      makeLabel: "Make",
+      makePlaceholder: "e.g. Toyota, BMW, Ford",
+      modelLabel: "Model",
+      modelOptional: "(optional)",
+      modelPlaceholder: "e.g. RAV4, 3 Series",
+      teslaNoteText: "We don't broker Teslas. But I'm a Tesla owner myself, so use my referral link below for a discount on your order.",
+      teslaCta: "Use my Tesla referral link",
+      step2Title: "Buy or lease?",
+      step2Sub: "Pick whichever you're leaning toward. You can change your mind later.",
+      optBuy: "Buy",
+      optLease: "Lease",
+      optNotSure: "Not sure yet",
+      step3Title: "What's your target monthly payment?",
+      step3Sub: "A rough range is fine.",
+      budget1: "Under $300/mo",
+      budget2: "$300–$500/mo",
+      budget3: "$500–$800/mo",
+      budget4: "$800+/mo",
+      step4Title: "When do you want to be in the vehicle?",
+      timeline1: "Immediately",
+      timeline2: "1–3 months",
+      timeline3: "Just browsing",
+      step5Title: "How would you describe your credit?",
+      step5Sub: "Self-reported. This just helps match you to the right lender options.",
+      credit1: "Excellent (720+)",
+      credit2: "Good (660–719)",
+      credit3: "Fair (600–659)",
+      credit4: "Building / not sure",
+      step6Title: "Last step: how do we reach you?",
+      nameLabel: "Full name",
+      phoneLabel: "Phone",
+      emailLabel: "Email",
+      zipLabel: "ZIP code",
+      consentText: "I agree to be contacted by phone, text, or email about vehicle offers. Message/data rates may apply.",
+      errorText: "Please fill in your name, phone, and consent to continue.",
+      doneTitle: "You're on the list",
+      doneText: "We're matching you with the right partner now. Expect a call or text shortly.",
+      backBtn: "Back",
+      nextBtn: "Next",
+      submitBtn: "Submit",
+      submittingBtn: "Submitting…",
+      dealsTitle: "This month's deals",
+      dealsNote: "UPDATED MONTHLY BY OUR BROKER NETWORK",
+      dealCta: "Get this deal"
+    },
+    es: {
+      pageTitle: "Vehicle Match: Conéctate con tu próximo vehículo",
+      fleetLink: "Para flotas y negocios",
+      headerNote: "Sin costo para ti",
+      heroTitle: "Te conectamos con tu próximo vehículo",
+      heroLede: "Cuéntanos qué estás buscando. Te conectamos con un broker que trabaja directamente con financieras y dealers para conseguirte una oferta real de compra o lease, sin que tengas que pisar un lote de carros.",
+      heroCta: "Empezar",
+      specLabel1: "Tiempo de respuesta",
+      specValue1: "Menos de 24 horas",
+      specLabel2: "Marcas disponibles",
+      specValue2: "Todas las marcas principales, Tesla por referido",
+      specLabel3: "Costo para ti",
+      specValue3: "$0, siempre",
+      stepWord: "PASO",
+      step1Title: "¿Qué estás buscando?",
+      step1Sub: "Dinos la marca y, si la sabes, el modelo.",
+      makeLabel: "Marca",
+      makePlaceholder: "ej. Toyota, BMW, Ford",
+      modelLabel: "Modelo",
+      modelOptional: "(opcional)",
+      modelPlaceholder: "ej. RAV4, Serie 3",
+      teslaNoteText: "No manejamos Tesla con brokers. Pero soy dueño de un Tesla, así que usa mi link de referido abajo para un descuento en tu compra.",
+      teslaCta: "Usar mi link de referido de Tesla",
+      step2Title: "¿Comprar o hacer lease?",
+      step2Sub: "Elige la que más te llame. Puedes cambiar de opinión después.",
+      optBuy: "Comprar",
+      optLease: "Lease",
+      optNotSure: "Aún no estoy seguro",
+      step3Title: "¿Cuál es tu pago mensual ideal?",
+      step3Sub: "Un rango aproximado está bien.",
+      budget1: "Menos de $300/mes",
+      budget2: "$300–$500/mes",
+      budget3: "$500–$800/mes",
+      budget4: "$800+/mes",
+      step4Title: "¿Cuándo quieres tener el vehículo?",
+      timeline1: "Inmediatamente",
+      timeline2: "1–3 meses",
+      timeline3: "Solo viendo opciones",
+      step5Title: "¿Cómo describirías tu crédito?",
+      step5Sub: "Es tu propio estimado. Nos ayuda a conectarte con las mejores opciones de financiamiento.",
+      credit1: "Excelente (720+)",
+      credit2: "Bueno (660–719)",
+      credit3: "Regular (600–659)",
+      credit4: "Construyendo crédito / no estoy seguro",
+      step6Title: "Último paso: ¿cómo te contactamos?",
+      nameLabel: "Nombre completo",
+      phoneLabel: "Teléfono",
+      emailLabel: "Correo electrónico",
+      zipLabel: "Código postal",
+      consentText: "Acepto ser contactado por teléfono, mensaje de texto o correo electrónico sobre ofertas de vehículos. Pueden aplicar tarifas de mensajes o datos.",
+      errorText: "Por favor completa tu nombre, teléfono y acepta los términos para continuar.",
+      doneTitle: "Ya estás en la lista",
+      doneText: "Te estamos conectando con el broker indicado. Espera una llamada o mensaje pronto.",
+      backBtn: "Atrás",
+      nextBtn: "Siguiente",
+      submitBtn: "Enviar",
+      submittingBtn: "Enviando…",
+      dealsTitle: "Ofertas de este mes",
+      dealsNote: "ACTUALIZADO MENSUALMENTE POR NUESTRA RED DE BROKERS",
+      dealCta: "Obtener esta oferta"
+    }
+  };
+
+  const savedLang = localStorage.getItem('vm_lang');
+  const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  let lang = savedLang || (browserLang.startsWith('es') ? 'es' : 'en');
+
+  function t(key) {
+    return (translations[lang] && translations[lang][key]) || translations.en[key] || key;
+  }
 
   // ---- THIS MONTH'S DEALS ----
   // Update this array each month: swap image files in /deals/ and edit the entries below.
@@ -659,7 +806,7 @@
       <div class="deal-meta">
         <div class="deal-make">${deal.make}</div>
         <div class="deal-model">${deal.model} · ${deal.price}</div>
-        <div class="deal-cta">Get this deal</div>
+        <div class="deal-cta">${t('dealCta')}</div>
       </div>
     `;
     card.addEventListener('click', () => {
@@ -692,7 +839,7 @@
     [...gauge.children].forEach((seg, idx) => {
       seg.classList.toggle('done', idx < current);
     });
-    odo.textContent = `STEP ${String(current).padStart(2,'0')} / 0${totalSteps}`;
+    odo.textContent = `${t('stepWord')} ${String(current).padStart(2,'0')} / 0${totalSteps}`;
   }
 
   function showStep(n) {
@@ -700,7 +847,7 @@
       s.classList.toggle('active', Number(s.dataset.step) === n);
     });
     backBtn.disabled = n === 1;
-    nextBtn.textContent = n === totalSteps ? 'Submit' : 'Next';
+    nextBtn.textContent = n === totalSteps ? t('submitBtn') : t('nextBtn');
     if (n <= totalSteps) renderGauge();
   }
 
@@ -747,7 +894,7 @@
 
   async function submitForm() {
     nextBtn.disabled = true;
-    nextBtn.textContent = 'Submitting…';
+    nextBtn.textContent = t('submittingBtn');
 
     const make = form.make.value.trim();
     const isTeslaLead = make.toLowerCase() === 'tesla';
@@ -793,7 +940,32 @@
     navRow.style.display = 'none';
   }
 
+  const langToggle = document.getElementById('langToggle');
+
+  function applyTranslations() {
+    document.documentElement.lang = lang;
+    document.title = t('pageTitle');
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      el.textContent = t(el.getAttribute('data-i18n'));
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      el.placeholder = t(el.getAttribute('data-i18n-placeholder'));
+    });
+    document.querySelectorAll('.deal-cta').forEach(el => {
+      el.textContent = t('dealCta');
+    });
+    nextBtn.textContent = current === totalSteps ? t('submitBtn') : t('nextBtn');
+    langToggle.textContent = lang === 'en' ? 'ES' : 'EN';
+  }
+
+  langToggle.addEventListener('click', () => {
+    lang = lang === 'en' ? 'es' : 'en';
+    localStorage.setItem('vm_lang', lang);
+    applyTranslations();
+  });
+
   showStep(current);
+  applyTranslations();
 </script>
 
 </body>
