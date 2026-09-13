@@ -63,6 +63,18 @@
     font-size:11px;
     color:var(--steel);
   }
+  .lang-toggle{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    font-weight:600;
+    color:var(--ink);
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:3px 9px;
+    cursor:pointer;
+  }
+  .lang-toggle:hover{ border-color:var(--ink); }
 
   .hero-grid{
     max-width:1040px;
@@ -293,16 +305,17 @@
     <div class="wordmark">Vehicle Match <span class="sub">for Fleets</span></div>
   </div>
   <div class="header-right">
-    <a class="consumer-link" href="/">Shopping for one vehicle?</a>
-    <div class="header-note">No cost to your business</div>
+    <a class="consumer-link" href="/" data-i18n="consumerLink">Shopping for one vehicle?</a>
+    <button class="lang-toggle" id="langToggle" type="button">ES</button>
+    <div class="header-note" data-i18n="headerNote">No cost to your business</div>
   </div>
 </header>
 
 <section class="hero-grid">
   <div class="hero-content">
-    <h1>Source your next fleet order without the markup</h1>
-    <p class="lede">Tell us your spec: volume, timeline, brand mix. We route it to brokers who handle multi-unit and commercial orders, at no cost to your business. You're not locked into one dealer's inventory.</p>
-    <a class="cta" href="#form">Request a fleet quote</a>
+    <h1 data-i18n="heroTitle">Source your next fleet order without the markup</h1>
+    <p class="lede" data-i18n="heroLede">Tell us your spec: volume, timeline, brand mix. We route it to brokers who handle multi-unit and commercial orders, at no cost to your business. You're not locked into one dealer's inventory.</p>
+    <a class="cta" href="#form" data-i18n="heroCta">Request a fleet quote</a>
   </div>
 
   <div class="form-col" id="form">
@@ -319,68 +332,68 @@
     <form id="fleetForm">
 
       <div class="step active" data-step="1">
-        <h2>Tell us about your business</h2>
+        <h2 data-i18n="step1Title">Tell us about your business</h2>
         <div class="field">
-          <label class="field-label" for="company">Company name</label>
+          <label class="field-label" for="company" data-i18n="companyLabel">Company name</label>
           <input type="text" id="company" name="company" autocomplete="organization">
         </div>
         <div class="field">
-          <label class="field-label" for="name">Your name</label>
+          <label class="field-label" for="name" data-i18n="nameLabel">Your name</label>
           <input type="text" id="name" name="name" autocomplete="name">
         </div>
       </div>
 
       <div class="step" data-step="2">
-        <h2>How many vehicles are you looking to order?</h2>
+        <h2 data-i18n="step2Title">How many vehicles are you looking to order?</h2>
         <div class="option-list" data-group="fleetSize">
-          <label class="option"><input type="radio" name="fleetSize" value="1–5 vehicles"><span>1–5 vehicles</span></label>
-          <label class="option"><input type="radio" name="fleetSize" value="6–15 vehicles"><span>6–15 vehicles</span></label>
-          <label class="option"><input type="radio" name="fleetSize" value="16–50 vehicles"><span>16–50 vehicles</span></label>
-          <label class="option"><input type="radio" name="fleetSize" value="50+ vehicles"><span>50+ vehicles</span></label>
+          <label class="option"><input type="radio" name="fleetSize" value="1–5 vehicles"><span data-i18n="fleet1">1–5 vehicles</span></label>
+          <label class="option"><input type="radio" name="fleetSize" value="6–15 vehicles"><span data-i18n="fleet2">6–15 vehicles</span></label>
+          <label class="option"><input type="radio" name="fleetSize" value="16–50 vehicles"><span data-i18n="fleet3">16–50 vehicles</span></label>
+          <label class="option"><input type="radio" name="fleetSize" value="50+ vehicles"><span data-i18n="fleet4">50+ vehicles</span></label>
         </div>
       </div>
 
       <div class="step" data-step="3">
-        <h2>What are you looking to order, and when?</h2>
-        <p class="sub">Makes, models, or vehicle class, whatever you know so far.</p>
+        <h2 data-i18n="step3Title">What are you looking to order, and when?</h2>
+        <p class="sub" data-i18n="step3Sub">Makes, models, or vehicle class, whatever you know so far.</p>
         <div class="field">
-          <label class="field-label" for="vehicleNeeds">Vehicle needs</label>
-          <textarea id="vehicleNeeds" name="vehicleNeeds" rows="3" placeholder="e.g. 10 half-ton pickups, open to Ford or GM"></textarea>
+          <label class="field-label" for="vehicleNeeds" data-i18n="vehicleNeedsLabel">Vehicle needs</label>
+          <textarea id="vehicleNeeds" name="vehicleNeeds" rows="3" placeholder="e.g. 10 half-ton pickups, open to Ford or GM" data-i18n-placeholder="vehicleNeedsPlaceholder"></textarea>
         </div>
         <div class="option-list" data-group="timeline">
-          <label class="option"><input type="radio" name="timeline" value="Immediately"><span>Immediately</span></label>
-          <label class="option"><input type="radio" name="timeline" value="1–3 months"><span>1–3 months</span></label>
-          <label class="option"><input type="radio" name="timeline" value="Just planning ahead"><span>Just planning ahead</span></label>
+          <label class="option"><input type="radio" name="timeline" value="Immediately"><span data-i18n="timeline1">Immediately</span></label>
+          <label class="option"><input type="radio" name="timeline" value="1–3 months"><span data-i18n="timeline2">1–3 months</span></label>
+          <label class="option"><input type="radio" name="timeline" value="Just planning ahead"><span data-i18n="timeline3">Just planning ahead</span></label>
         </div>
       </div>
 
       <div class="step" data-step="4">
-        <h2>Last step: how do we reach you?</h2>
+        <h2 data-i18n="step4Title">Last step: how do we reach you?</h2>
         <div class="field">
-          <label class="field-label" for="phone">Phone</label>
+          <label class="field-label" for="phone" data-i18n="phoneLabel">Phone</label>
           <input type="tel" id="phone" name="phone" autocomplete="tel">
         </div>
         <div class="field">
-          <label class="field-label" for="email">Work email</label>
+          <label class="field-label" for="email" data-i18n="emailLabel">Work email</label>
           <input type="email" id="email" name="email" autocomplete="email">
         </div>
         <label class="consent">
           <input type="checkbox" id="consent" name="consent">
-          <span>I agree to be contacted by phone, text, or email about fleet vehicle offers.</span>
+          <span data-i18n="consentText">I agree to be contacted by phone, text, or email about fleet vehicle offers.</span>
         </label>
-        <div class="error-text" id="formError">Please fill in your name, phone, and consent to continue.</div>
+        <div class="error-text" id="formError" data-i18n="errorText">Please fill in your name, phone, and consent to continue.</div>
       </div>
 
       <div class="step done-panel" data-step="5">
         <div class="mark">&#10003;</div>
-        <h2>Request received</h2>
-        <p>We're routing your spec to brokers who handle fleet orders. Expect a call or email within 1 business day.</p>
+        <h2 data-i18n="doneTitle">Request received</h2>
+        <p data-i18n="doneText">We're routing your spec to brokers who handle fleet orders. Expect a call or email within 1 business day.</p>
       </div>
 
     </form>
 
     <div class="nav-row" id="navRow">
-      <button type="button" class="btn-back" id="backBtn">Back</button>
+      <button type="button" class="btn-back" id="backBtn" data-i18n="backBtn">Back</button>
       <button type="button" class="btn-next" id="nextBtn">Next</button>
     </div>
   </div>
@@ -390,21 +403,21 @@
 
 <div class="spec-strip">
   <div class="spec-item">
-    <div class="label">Response time</div>
-    <div class="value">Within 1 business day</div>
+    <div class="label" data-i18n="specLabel1">Response time</div>
+    <div class="value" data-i18n="specValue1">Within 1 business day</div>
   </div>
   <div class="spec-item">
-    <div class="label">Order size</div>
-    <div class="value">1 vehicle to full fleet</div>
+    <div class="label" data-i18n="specLabel2">Order size</div>
+    <div class="value" data-i18n="specValue2">1 vehicle to full fleet</div>
   </div>
   <div class="spec-item">
-    <div class="label">Cost to your business</div>
-    <div class="value">$0, always</div>
+    <div class="label" data-i18n="specLabel3">Cost to your business</div>
+    <div class="value" data-i18n="specValue3">$0, always</div>
   </div>
 </div>
 
 <div class="sourcing-strip">
-  <div class="sourcing-label">Currently sourcing across</div>
+  <div class="sourcing-label" data-i18n="sourcingLabel">Currently sourcing across</div>
   <div class="sourcing-brands">
     <span>Nissan</span>
     <span>Cadillac</span>
@@ -418,6 +431,102 @@
 
 <script>
   const SUBMIT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwBYoAzNDonGkULvr2aZUHUsMTxwoQZMlH_F4wzlE24e0m4Rdx3UO3AcjgrJ93luuw/exec";
+
+  // ---- LANGUAGE / TRANSLATIONS ----
+  const translations = {
+    en: {
+      pageTitle: "Vehicle Match for Fleets: Source your fleet order without the markup",
+      consumerLink: "Shopping for one vehicle?",
+      headerNote: "No cost to your business",
+      heroTitle: "Source your next fleet order without the markup",
+      heroLede: "Tell us your spec: volume, timeline, brand mix. We route it to brokers who handle multi-unit and commercial orders, at no cost to your business. You're not locked into one dealer's inventory.",
+      heroCta: "Request a fleet quote",
+      stepWord: "STEP",
+      step1Title: "Tell us about your business",
+      companyLabel: "Company name",
+      nameLabel: "Your name",
+      step2Title: "How many vehicles are you looking to order?",
+      fleet1: "1–5 vehicles",
+      fleet2: "6–15 vehicles",
+      fleet3: "16–50 vehicles",
+      fleet4: "50+ vehicles",
+      step3Title: "What are you looking to order, and when?",
+      step3Sub: "Makes, models, or vehicle class, whatever you know so far.",
+      vehicleNeedsLabel: "Vehicle needs",
+      vehicleNeedsPlaceholder: "e.g. 10 half-ton pickups, open to Ford or GM",
+      timeline1: "Immediately",
+      timeline2: "1–3 months",
+      timeline3: "Just planning ahead",
+      step4Title: "Last step: how do we reach you?",
+      phoneLabel: "Phone",
+      emailLabel: "Work email",
+      consentText: "I agree to be contacted by phone, text, or email about fleet vehicle offers.",
+      errorText: "Please fill in your name, phone, and consent to continue.",
+      doneTitle: "Request received",
+      doneText: "We're routing your spec to brokers who handle fleet orders. Expect a call or email within 1 business day.",
+      backBtn: "Back",
+      nextBtn: "Next",
+      submitBtn: "Submit",
+      submittingBtn: "Submitting…",
+      specLabel1: "Response time",
+      specValue1: "Within 1 business day",
+      specLabel2: "Order size",
+      specValue2: "1 vehicle to full fleet",
+      specLabel3: "Cost to your business",
+      specValue3: "$0, always",
+      sourcingLabel: "Currently sourcing across"
+    },
+    es: {
+      pageTitle: "Vehicle Match para Flotas: consigue tu pedido de flota sin sobreprecio",
+      consumerLink: "¿Buscas un solo vehículo?",
+      headerNote: "Sin costo para tu negocio",
+      heroTitle: "Consigue tu próximo pedido de flota sin sobreprecio",
+      heroLede: "Cuéntanos tu necesidad: volumen, tiempos, marcas. Lo conectamos con brokers que manejan pedidos comerciales y de múltiples unidades, sin costo para tu negocio. No estás limitado al inventario de un solo dealer.",
+      heroCta: "Solicitar cotización de flota",
+      stepWord: "PASO",
+      step1Title: "Cuéntanos sobre tu negocio",
+      companyLabel: "Nombre de la empresa",
+      nameLabel: "Tu nombre",
+      step2Title: "¿Cuántos vehículos buscas ordenar?",
+      fleet1: "1–5 vehículos",
+      fleet2: "6–15 vehículos",
+      fleet3: "16–50 vehículos",
+      fleet4: "50+ vehículos",
+      step3Title: "¿Qué buscas ordenar, y para cuándo?",
+      step3Sub: "Marcas, modelos o tipo de vehículo, lo que sepas hasta ahora.",
+      vehicleNeedsLabel: "Necesidades de vehículos",
+      vehicleNeedsPlaceholder: "ej. 10 pickups medianas, abierto a Ford o GM",
+      timeline1: "Inmediatamente",
+      timeline2: "1–3 meses",
+      timeline3: "Solo planificando",
+      step4Title: "Último paso: ¿cómo te contactamos?",
+      phoneLabel: "Teléfono",
+      emailLabel: "Correo del trabajo",
+      consentText: "Acepto ser contactado por teléfono, mensaje de texto o correo electrónico sobre ofertas de vehículos para flotas.",
+      errorText: "Por favor completa tu nombre, teléfono y acepta los términos para continuar.",
+      doneTitle: "Solicitud recibida",
+      doneText: "Estamos enviando tu solicitud a brokers que manejan pedidos de flotas. Espera una llamada o correo dentro de 1 día hábil.",
+      backBtn: "Atrás",
+      nextBtn: "Siguiente",
+      submitBtn: "Enviar",
+      submittingBtn: "Enviando…",
+      specLabel1: "Tiempo de respuesta",
+      specValue1: "Dentro de 1 día hábil",
+      specLabel2: "Tamaño del pedido",
+      specValue2: "De 1 vehículo a flota completa",
+      specLabel3: "Costo para tu negocio",
+      specValue3: "$0, siempre",
+      sourcingLabel: "Actualmente trabajando con"
+    }
+  };
+
+  const savedLang = localStorage.getItem('vm_lang');
+  const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  let lang = savedLang || (browserLang.startsWith('es') ? 'es' : 'en');
+
+  function t(key) {
+    return (translations[lang] && translations[lang][key]) || translations.en[key] || key;
+  }
 
   const totalSteps = 4;
   let current = 1;
@@ -438,7 +547,7 @@
     [...gauge.children].forEach((seg, idx) => {
       seg.classList.toggle('done', idx < current);
     });
-    odo.textContent = `STEP ${String(current).padStart(2,'0')} / 0${totalSteps}`;
+    odo.textContent = `${t('stepWord')} ${String(current).padStart(2,'0')} / 0${totalSteps}`;
   }
 
   function showStep(n) {
@@ -446,7 +555,7 @@
       s.classList.toggle('active', Number(s.dataset.step) === n);
     });
     backBtn.disabled = n === 1;
-    nextBtn.textContent = n === totalSteps ? 'Submit' : 'Next';
+    nextBtn.textContent = n === totalSteps ? t('submitBtn') : t('nextBtn');
     if (n <= totalSteps) renderGauge();
   }
 
@@ -489,7 +598,7 @@
 
   async function submitForm() {
     nextBtn.disabled = true;
-    nextBtn.textContent = 'Submitting…';
+    nextBtn.textContent = t('submittingBtn');
 
     const payload = {
       name: form.name.value.trim(),
@@ -529,7 +638,29 @@
     navRow.style.display = 'none';
   }
 
+  const langToggle = document.getElementById('langToggle');
+
+  function applyTranslations() {
+    document.documentElement.lang = lang;
+    document.title = t('pageTitle');
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      el.textContent = t(el.getAttribute('data-i18n'));
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      el.placeholder = t(el.getAttribute('data-i18n-placeholder'));
+    });
+    nextBtn.textContent = current === totalSteps ? t('submitBtn') : t('nextBtn');
+    langToggle.textContent = lang === 'en' ? 'ES' : 'EN';
+  }
+
+  langToggle.addEventListener('click', () => {
+    lang = lang === 'en' ? 'es' : 'en';
+    localStorage.setItem('vm_lang', lang);
+    applyTranslations();
+  });
+
   showStep(current);
+  applyTranslations();
 </script>
 
 </body>
