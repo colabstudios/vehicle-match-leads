@@ -373,6 +373,19 @@
     color:#5C4A0E;
   }
   .tesla-note.show{ display:block; }
+  .tesla-note .tesla-cta{
+    display:inline-block;
+    margin-top:9px;
+    background:var(--ink);
+    color:#fff;
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:12.5px;
+    padding:8px 14px;
+    border-radius:3px;
+    text-decoration:none;
+  }
+  .tesla-note .tesla-cta:hover{ background:#000; }
 
   .consent{
     display:flex;
@@ -495,7 +508,9 @@
           <input type="text" id="model" name="model" placeholder="e.g. RAV4, 3 Series" autocomplete="off">
         </div>
         <div class="tesla-note" id="teslaNote">
-          Heads up: we don't have a Tesla broker in our network right now. We'll still save your info in case that changes, but response times may be slower for this one.
+          We don't broker Teslas. But I'm a Tesla owner myself, so use my referral link below for a discount on your order.
+          <br>
+          <a class="tesla-cta" href="https://www.tesla.com/referral/angel631777" target="_blank" rel="noopener noreferrer">Use my Tesla referral link</a>
         </div>
       </div>
 
