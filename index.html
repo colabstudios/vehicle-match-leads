@@ -955,6 +955,7 @@
       el.textContent = t('dealCta');
     });
     nextBtn.textContent = current === totalSteps ? t('submitBtn') : t('nextBtn');
+    renderGauge();
     langToggle.textContent = lang === 'en' ? 'ES' : 'EN';
   }
 

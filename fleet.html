@@ -650,6 +650,7 @@
       el.placeholder = t(el.getAttribute('data-i18n-placeholder'));
     });
     nextBtn.textContent = current === totalSteps ? t('submitBtn') : t('nextBtn');
+    renderGauge();
     langToggle.textContent = lang === 'en' ? 'ES' : 'EN';
   }
 
